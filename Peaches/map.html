@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Find your local store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Alice's Eco Website">
+  <meta name="author" content="AliceArc">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridlex/2.7.1/gridlex.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/map.css">
+</head>
+
+<body>
+  <div id="container">
+
+    <nav id="main-nav">
+      <div class="grid-middle-noBottom">
+        <div class="col-5_md-3_sm-2" style="text-align: center;">
+          <a class="link" href="about.html">
+            <i class="fas fa-at"></i>
+            <span class="sm-hidden">About</span>
+          </a>
+        </div>
+        <div class="col-2_md-6_sm-8">
+          <a href="index.html" class="link" id="logo"><b>White Peach</b></a>
+        </div>
+        <div class="col-5_md-3_sm-2" style="text-align: center;">
+          <a class="link" href="map.html">
+            <i class="fas fa-search"></i>
+            <span class="sm-hidden">Find local grocers</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="grid-middle-center" style="flex:1;padding-top:80px;">
+
+      <div data-push-left="col-2_md-0" class="col-4_md-6_sm-12">
+        <h1 class="plastic-title no-padding">find your local store</h1>
+        <div class="white-box">
+          In the United Kingdom, the Big Six supermarkets currently hold a combined marketshare of 83%.
+          <p><b>That's a lot of avacados.</b></p>
+          <p>Despite this, little notable change has been made by these giants to reduce plastic packagaing -- and <i>save our planet</i>.</p>
+
+          <p><b>White Peach</b> acknowledges that tangible change in sustainbility and consumerism must come now if Planet Earth is to survive. The importance of local investment and involvement is crucial in setting a precident throughout the country.</p>
+          <i>Find your county to make it green!</i>
+        </div>
+      </div>
+
+      <div data-push-left="col-0_md-1_sm-0" class="col-6_sm-10 col-last_md-first">
+        <div class="map-container">
+          <img class="svg" src="/svg/uk.svg" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    jQuery('img.svg').each(function() {
+      var $img = jQuery(this);
+      var imgID = $img.attr('id');
+      var imgClass = $img.attr('class');
+      var imgURL = $img.attr('src');
+      jQuery.get(imgURL, function(data) {
+        // Get the SVG tag, ignore the rest
+        var $svg = jQuery(data).find('svg');
+        // Add replaced image's ID to the new SVG
+        if (typeof imgID !== 'undefined') {
+          $svg = $svg.attr('id', imgID);
+        }
+        // Add replaced image's classes to the new SVG
+        if (typeof imgClass !== 'undefined') {
+          $svg = $svg.attr('class', imgClass + ' replaced-svg');
+        }
+        // Remove any invalid XML tags as per http://validator.w3.org
+        $svg = $svg.removeAttr('xmlns:a');
+        // Replace image with new SVG
+        $img.replaceWith($svg);
+      }, 'xml');
+    });
+  });
+  // now make code that turns the regions into links
+  $(document).ready(function() {
+    $('.map-container').on('click', '.map-region', function() {
+      console.log();
+      const name = $(this).attr('title').toLowerCase();
+      window.open(name + '.html', '_self');
+      return false;
+    });
+  });
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
+</body>
+
+</html>

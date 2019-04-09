@@ -1,0 +1,30 @@
+#container {
+  background: linear-gradient(107.5deg, rgba(208, 222, 170, 1) 11.7%, rgba(191, 226, 224, 1) 70.5%);
+}
+
+.map-container {
+  width: 100%; 
+}
+
+img.svg,
+svg {
+  width: 100%;
+  max-height: 80vh;
+  height: auto;
+}
+
+.map-region {
+  fill: white;
+  cursor: pointer;
+}
+
+.map-region:hover {
+  /*fill: darkseagreen;*/
+  /*fill: url(../svg/gradient.svg);*/
+  fill: url(#fill-gradient) darkseagreen;
+}
+
+#fill-gradient {
+  --color-stop: #EDE574;
+  --color-bot: #E1F5C4;
+}

@@ -1,0 +1,33 @@
+nav {
+  margin: 0
+}
+
+#main-nav {
+  background: rgb(186, 171, 171, 0.3);
+  height:auto;
+  text-align:center;
+  width:100%;
+  font: normal 14px/1.618em "Hind", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+#main-nav > ul > li {
+  display:inline;
+}
+#main-nav > ul > li > a
+{
+  color:#fff;
+  display:inline-block;
+  height:60px;
+  line-height:60px;
+  margin:0px;
+  padding:0px 15px;
+  text-decoration:none;
+  transition: color 0.3s ease-in;
+}
+#main-nav > ul > li > a:hover {
+  color:#ff853f;
+}
+
+#logo {
+  font-size: 18px;
+}
